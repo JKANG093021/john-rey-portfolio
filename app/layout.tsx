@@ -7,15 +7,18 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://john-rey-portfolio-
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "John Rey Baliguat | Technical, Admin & Customer Support",
+    default: "John Rey Baliguat | Technical VA & Web Support",
     template: "%s | John Rey Baliguat",
   },
   description:
-    "John Rey Baliguat supports customers, administrative operations, business systems, websites, hardware and printer installation, maintenance, and technical workflows for remote teams.",
+    "John Rey Baliguat provides Technical VA, web, e-commerce, customer, and admin support, with hardware experience and light real-estate experience as a licensed salesperson.",
   keywords: [
     "Technical Support",
+    "Technical Virtual Assistant",
     "Application Support",
     "Customer Support",
+    "E-commerce Support",
+    "E-commerce Virtual Assistant",
     "Email and Chat Support",
     "Administrative Support",
     "Operations Assistant",
@@ -27,22 +30,24 @@ export const metadata: Metadata = {
     "QA Testing",
     "Junior IT Support",
     "Remote Web Support",
+    "Licensed Real Estate Salesperson",
+    "Real Estate Support",
   ],
   authors: [{ name: "John Rey Baliguat" }],
   creator: "John Rey Baliguat",
   openGraph: {
     type: "website",
     url: siteUrl,
-    title: "John Rey Baliguat | Technical, Admin & Customer Support",
+    title: "John Rey Baliguat | Technical VA & Web Support",
     description:
-      "Customer support, administrative operations, business-system familiarization, website support, hardware installation, maintenance, and technical troubleshooting.",
+      "Technical VA, web, e-commerce, customer, and admin support with practical hardware experience and a licensed real-estate background.",
     siteName: "John Rey Baliguat Portfolio",
   },
   twitter: {
     card: "summary_large_image",
-    title: "John Rey Baliguat | Technical, Admin & Customer Support",
+    title: "John Rey Baliguat | Technical VA & Web Support",
     description:
-      "Customer support, administrative operations, business-system familiarization, website support, hardware installation, maintenance, and technical troubleshooting.",
+      "Technical VA, web, e-commerce, customer, and admin support with practical hardware experience and a licensed real-estate background.",
   },
 };
 

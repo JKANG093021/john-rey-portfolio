@@ -75,7 +75,9 @@ export function ContactForm() {
             <option>Technical or application support</option>
             <option>Customer support - email or chat</option>
             <option>Administrative or operations support</option>
+            <option>E-commerce support or virtual assistant</option>
             <option>Website and system support</option>
+            <option>Real estate support</option>
             <option>Junior IT support</option>
             <option>Project-based web development</option>
             <option>Other</option>
@@ -109,12 +111,12 @@ export function ContactForm() {
         Your inquiry goes directly to John Rey. You&apos;ll receive an automatic confirmation after a successful submission.
       </p>
 
-      {feedback && (
+      {feedback ? (
         <div className={`form-feedback ${state === "success" ? "success" : "error"}`} role="status">
-          {state === "success" && <CheckCircle2 size={18} />}
+          {state === "success" ? <CheckCircle2 size={18} /> : null}
           <span>{feedback}</span>
         </div>
-      )}
+      ) : null}
     </form>
   );
 }

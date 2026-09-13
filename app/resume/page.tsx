@@ -7,13 +7,14 @@ import { profile } from "@/data/portfolio";
 export const metadata: Metadata = {
   title: "ATS Resume",
   description:
-    "ATS-friendly resume of John Rey Baliguat for technical support, customer support, administrative operations, website support, and junior IT roles.",
+    "ATS-friendly resume of John Rey Baliguat for technical support, e-commerce support, customer support, administrative operations, website support, and junior IT roles.",
 };
 
 const coreSkills = [
   "Technical support and troubleshooting",
   "Customer assistance by email and chat",
   "Administrative and operations support",
+  "E-commerce storefront, product, and order support",
   "Business system familiarization",
   "Admin dashboard support and record maintenance",
   "Issue reproduction and escalation notes",
@@ -79,6 +80,10 @@ const projectExperience = [
 
 const training = [
   {
+    title: "Licensed Real Estate Salesperson",
+    meta: "Philippines | Light real-estate experience",
+  },
+  {
     title: "Real Estate Brokerage Seminar for Real Estate Salespersons",
     meta: "Philippines Center for Real Estate Professional Studies, Inc. | 12 credit units | June 20–21, 2026",
   },
@@ -111,7 +116,7 @@ export default function ResumePage() {
       <article className="resume-document" aria-label="ATS resume of John Rey Baliguat">
         <header className="resume-document-header">
           <h1>{profile.fullName}</h1>
-          <p className="resume-target-title">Technical Support | Customer Support | Administrative Operations | Web Systems</p>
+          <p className="resume-target-title">Technical Support | E-commerce Support | Customer and Administrative Operations | Web Systems</p>
           <div className="resume-contact-row">
             <span><MapPin size={14} /> {profile.location} | Remote</span>
             <a href={`mailto:${profile.email}`}><Mail size={14} /> {profile.email}</a>
@@ -122,7 +127,7 @@ export default function ResumePage() {
         <section className="resume-section">
           <h2>Professional Summary</h2>
           <p>
-            Bachelor of Science in Information Technology graduate with approximately two years of hands-on web, hardware, and technical project experience. Supports users, administrative and customer workflows, business platforms, websites, device and printer installation, maintenance, quality assurance, databases, deployment, and API integrations. Learns unfamiliar systems and procedures carefully, communicates clearly, and verifies completed work.
+            Bachelor of Science in Information Technology graduate with approximately two years of hands-on web, hardware, and technical project experience. Supports users, customer and administrative workflows, websites, business systems, hardware, printers, quality assurance, databases, deployment, and API integrations. Open to e-commerce support roles involving storefront, product, order, and customer operations. Licensed real estate salesperson with light industry experience in property, inquiry, and lead workflows.
           </p>
         </section>
 
@@ -197,7 +202,7 @@ export default function ResumePage() {
         </section>
 
         <section className="resume-section">
-          <h2>Training and Certificates</h2>
+          <h2>Licenses, Training and Certificates</h2>
           {training.map((item) => (
             <div className="resume-entry resume-training-entry" key={item.title}>
               <div className="resume-entry-heading">
@@ -210,7 +215,7 @@ export default function ResumePage() {
         <section className="resume-section resume-last-section">
           <h2>Target Roles and Availability</h2>
           <p>
-            Technical Support, Application Support, Customer Support by Email or Chat, Administrative or Operations Assistant, Website and System Support, Junior IT Support, and Hardware Installation or Maintenance Support. Available for remote full-time, part-time, and suitable project-based opportunities.
+            Technical Support, Application Support, E-commerce Support or Virtual Assistant, Customer Support by Email or Chat, Administrative or Operations Assistant, Website and System Support, Junior IT Support, Real Estate Support, and Hardware Installation or Maintenance Support. Available for remote full-time, part-time, and suitable project-based opportunities.
           </p>
         </section>
       </article>

@@ -1,16 +1,20 @@
 # John Rey Baliguat Portfolio
 
-Premium hiring portfolio for John Rey Baliguat, positioned for technical support, customer support, administrative operations, website and system support, and junior IT opportunities.
+Premium hiring portfolio for John Rey Baliguat, positioned for technical support, e-commerce support, customer support, administrative operations, website and system support, and junior IT opportunities, with light real-estate experience as a licensed salesperson.
 
 ## Included
 
 - Responsive Next.js portfolio with dark and light themes
-- Broader professional positioning beyond pure web development
-- Support areas for customers, administration, business systems, and technical work
+- Focused Technical VA and Web Support positioning
+- Clear openness to e-commerce support roles involving storefront, product, order, and customer operations
+- Three visual service pillars: websites and systems, admin and customer support, and hardware maintenance
+- Responsive hero with a moving gradient portrait border and mobile photo-behind-text composition
 - Hardware, printer, peripheral installation, device troubleshooting, and maintenance capabilities
 - Personal AI productivity tools: ChatGPT and Claude
-- Four business-safe case studies, including an original self-directed milk-tea e-commerce concept
+- Four minimalist, business-safe case studies, including an original self-directed milk-tea e-commerce concept
+- Standalone homepage customer-support section with an interactive five-step website-outage timeline from client report through provider escalation and confirmed recovery
 - Certificate gallery covering real estate, explainable AI, front-end development, IT career readiness, and Azure
+- Licensed Real Estate Salesperson credential presented as light supporting experience
 - Privacy-safe DOUS project imagery and restored Triple Vision admin-system link
 - Dedicated online resume page at `/resume`
 - One-page ATS resume in PDF and editable DOCX formats

@@ -65,7 +65,7 @@ export default async function ProjectPage({
             <div className="chips case-chips">
               {project.technologies.map((item) => <span key={item}>{item}</span>)}
             </div>
-            {project.liveUrl && (
+            {project.liveUrl ? (
               <a
                 className="secondary-button case-live-button"
                 href={project.liveUrl}
@@ -74,15 +74,10 @@ export default async function ProjectPage({
               >
                 {project.liveLabel || "Visit Live Website"} <ExternalLink size={17} />
               </a>
-            )}
+            ) : null}
           </div>
           <div className={`case-visual ${project.visualClass}`}>
-            <div className="visual-window case-window">
-              <div className="visual-topbar"><span /><span /><span /></div>
-              <div className="visual-body preview-body case-preview-body">
-                <ProjectPreview project={project} />
-              </div>
-            </div>
+            <ProjectPreview project={project} />
           </div>
         </div>
       </section>
@@ -131,12 +126,12 @@ export default async function ProjectPage({
             ))}
           </div>
         </div>
-        {project.note && (
+        {project.note ? (
           <div className="container-shell privacy-note">
             <ShieldCheck size={18} />
             <span>{project.note}</span>
           </div>
-        )}
+        ) : null}
       </section>
 
       <section className="case-cta">

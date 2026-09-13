@@ -116,13 +116,13 @@ export async function POST(request: Request) {
       to: email,
       replyTo: gmailUser,
       subject: "Thanks for reaching out - John Rey Baliguat",
-      text: `Hi ${name},\n\nThanks for reaching out through my portfolio. I received your inquiry about ${workType}.\n\nI'll review the details you sent and get back to you as soon as I can. If there is anything important I should know, such as a deadline, system link, or specific issue, you can reply directly to this email.\n\nBest,\nJohn Rey Baliguat\nTechnical Support | Admin Operations | Customer Support | Web Systems\n${gmailUser}`,
+      text: `Hi ${name},\n\nThanks for reaching out through my portfolio. I received your inquiry about ${workType}.\n\nI'll review the details you sent and get back to you as soon as I can. If there is anything important I should know, such as a deadline, system link, or specific issue, you can reply directly to this email.\n\nBest,\nJohn Rey Baliguat\nTechnical VA | Web and Business System Support\n${gmailUser}`,
       html: `
         <div style="font-family:Arial,sans-serif;max-width:620px;margin:auto;color:#172033;line-height:1.7">
           <p>Hi ${safeName},</p>
           <p>Thanks for reaching out through my portfolio. I received your inquiry about <strong>${safeWorkType}</strong>.</p>
           <p>I&apos;ll review the details you sent and get back to you as soon as I can. If there is anything important I should know, such as a deadline, system link, or specific issue, you can reply directly to this email.</p>
-          <p style="margin-top:28px">Best,<br /><strong>John Rey Baliguat</strong><br />Technical Support | Admin Operations | Customer Support | Web Systems<br />${escapeHtml(gmailUser)}</p>
+          <p style="margin-top:28px">Best,<br /><strong>John Rey Baliguat</strong><br />Technical VA | Web and Business System Support<br />${escapeHtml(gmailUser)}</p>
         </div>
       `,
     });

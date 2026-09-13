@@ -1,8 +1,8 @@
 export const profile = {
   name: "John Rey",
   fullName: "John Rey Baliguat",
-  role: "Technical Support | Admin Operations | Customer Support | Web Systems",
-  specialty: "Business systems, customer workflows, administration, web support, hardware installation, and maintenance",
+  role: "Technical VA | Web and Business System Support | Customer and Admin Support",
+  specialty: "Websites, business systems, customer and admin workflows, hardware installation, and maintenance",
   email: "baliguatjohnrey91@gmail.com",
   linkedin: "",
   github: "",
@@ -32,6 +32,26 @@ export type PortfolioProject = {
   liveUrl?: string;
   liveLabel?: string;
   visualClass: "real-estate" | "library" | "loyalty" | "commerce";
+};
+
+export type PortfolioSupportStep = {
+  phase: string;
+  shortLabel: string;
+  title: string;
+  description: string;
+  image: string;
+  imageAlt: string;
+  width: number;
+  height: number;
+  redactions?: Array<"ticket-email" | "ticket-ip" | "response-email">;
+};
+
+export type PortfolioSupportStory = {
+  eyebrow: string;
+  title: string;
+  intro: string;
+  outcome: string;
+  steps: PortfolioSupportStep[];
 };
 
 export type PortfolioCertificate = {
@@ -180,17 +200,75 @@ export const projects: PortfolioProject[] = [
   },
 ];
 
+export const customerSupportStory: PortfolioSupportStory = {
+  eyebrow: "Customer support work sample",
+  title: "A real support issue, handled from first report to resolution.",
+  intro:
+    "This standalone example shows how I communicate with a client, investigate a technical issue, escalate with useful evidence, explain the response, and follow through until service is restored.",
+  outcome:
+    "The root cause was a domain suspension caused by an unverified registrant email. After provider confirmation and client verification, the website became available again and the client confirmed the resolution.",
+  steps: [
+    {
+      phase: "Step 01 · Client report",
+      shortLabel: "Reported",
+      title: "The client reported that the website would not open.",
+      description:
+        "I asked when the issue began, checked whether it was intermittent, tested the website myself, and confirmed that it was unavailable.",
+      image: "/projects/chuchu-support/01-client-report.png",
+      imageAlt: "Client conversation reporting that the Chuchu Milktea website would not open",
+      width: 1648,
+      height: 954,
+    },
+    {
+      phase: "Step 02 · My escalation",
+      shortLabel: "Escalated",
+      title: "I emailed the hosting company with my findings.",
+      description:
+        "I sent a detailed support ticket describing the NXDOMAIN error and included the nameserver, DNS-zone, A-record, and direct-server connectivity checks I had completed.",
+      image: "/projects/chuchu-support/02-provider-escalation.png",
+      imageAlt: "Support ticket sent to the hosting company with DNS troubleshooting details",
+      width: 1230,
+      height: 605,
+      redactions: ["ticket-email", "ticket-ip"],
+    },
+    {
+      phase: "Step 03 · Provider response",
+      shortLabel: "Diagnosed",
+      title: "Melissa B. confirmed the root cause.",
+      description:
+        "The hosting support operator explained that the domain had been suspended because the registrant email address had not been verified.",
+      image: "/projects/chuchu-support/03-provider-response.png",
+      imageAlt: "Hosting support response identifying missing registrant email verification as the cause",
+      width: 1251,
+      height: 778,
+      redactions: ["response-email"],
+    },
+    {
+      phase: "Step 04 · Client guidance",
+      shortLabel: "Guided",
+      title: "I explained the cause and the next action.",
+      description:
+        "I told the client that the issue was at the domain and hosting layer, asked her to locate the registration-verification email, and guided her through the required action.",
+      image: "/projects/chuchu-support/04-client-guidance.png",
+      imageAlt: "Client conversation explaining the domain verification issue and next action",
+      width: 1692,
+      height: 929,
+    },
+    {
+      phase: "Step 05 · Resolution",
+      shortLabel: "Resolved",
+      title: "The client confirmed the successful resolution.",
+      description:
+        "After verification and domain reactivation, the client confirmed that she could open the website again. I stayed with the issue from the first report through the final confirmation.",
+      image: "/projects/chuchu-support/05-resolution-confirmed.png",
+      imageAlt: "Client confirming that the Chuchu Milktea website opened successfully",
+      width: 1209,
+      height: 1300,
+    },
+  ],
+};
+
 export const certificates: PortfolioCertificate[] = [
-  {
-    title: "Real Estate Brokerage Seminar for Real Estate Salespersons",
-    issuer: "Philippines Center for Real Estate Professional Studies, Inc.",
-    date: "June 20–21, 2026",
-    category: "Real Estate · 12 Credit Units",
-    description:
-      "Completed foundational training covering professional practice, ethics, taxation, and documentation in Philippine real estate.",
-    image: "/certificates/real-estate-brokerage-seminar.png",
-    orientation: "portrait",
-  },
   {
     title: "No Cap, Just Clarity: The Real Deal on Explainable AI (XAI)",
     issuer: "West Visayas State University · CICT",
@@ -226,5 +304,15 @@ export const certificates: PortfolioCertificate[] = [
     description: "Participated in an introductory learning event focused on Microsoft Azure administration concepts.",
     image: "/certificates/azure-az-104-insight.png",
     orientation: "landscape",
+  },
+  {
+    title: "Real Estate Brokerage Seminar for Real Estate Salespersons",
+    issuer: "Philippines Center for Real Estate Professional Studies, Inc.",
+    date: "June 20–21, 2026",
+    category: "Real Estate · 12 Credit Units",
+    description:
+      "Supports my light real-estate experience as a licensed salesperson; training covered professional practice, ethics, taxation, and documentation.",
+    image: "/certificates/real-estate-brokerage-seminar.png",
+    orientation: "portrait",
   },
 ];

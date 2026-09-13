@@ -23,7 +23,7 @@ export function Nav() {
           <span className="brand-mark" aria-hidden="true">JR</span>
           <span className="brand-copy">
             <strong>John Rey Baliguat</strong>
-            <small>Support · Systems · Web</small>
+            <small>Technical VA · Web Support</small>
           </span>
         </Link>
 
