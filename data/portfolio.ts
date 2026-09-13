@@ -1,12 +1,14 @@
 export const profile = {
   name: "John Rey",
   fullName: "John Rey Baliguat",
-  role: "Technical Virtual Assistant | Web Support & Automation",
-  specialty: "Technical Support • Website Management • Business Systems • Automation",
+  role: "Technical Support | Admin Operations | Customer Support | Web Systems",
+  specialty: "Business systems, customer workflows, administration, web support, hardware installation, and maintenance",
   email: "baliguatjohnrey91@gmail.com",
   linkedin: "",
   github: "",
-  resumeHref: "/John-Rey-Baliguat-Resume.pdf",
+  portfolioUrl: "https://john-rey-portfolio-wsj7.vercel.app",
+  resumeHref: "/John-Rey-Baliguat-ATS-Resume.pdf",
+  resumeDocxHref: "/John-Rey-Baliguat-ATS-Resume.docx",
   resumePageHref: "/resume",
   location: "Philippines",
 };
@@ -22,136 +24,207 @@ export type PortfolioProject = {
   solution: string[];
   technologies: string[];
   highlights: string[];
+  transferableSkills: string[];
   note?: string;
   screenshot?: string;
+  imageAlt?: string;
+  imageLabel?: string;
   liveUrl?: string;
   liveLabel?: string;
-  visualClass: "real-estate" | "library" | "retail" | "loyalty";
+  visualClass: "real-estate" | "library" | "loyalty" | "commerce";
+};
+
+export type PortfolioCertificate = {
+  title: string;
+  issuer: string;
+  date: string;
+  category: string;
+  description: string;
+  image: string;
+  orientation: "portrait" | "landscape";
 };
 
 export const projects: PortfolioProject[] = [
   {
     slug: "real-estate-platform",
-    label: "Lead & Sales Attribution",
+    label: "Admin Operations and Lead Management",
     title: "Triple Vision Realty Platform",
     summary:
-      "A property and buyer-lead system with admin tools and agent referral attribution.",
+      "A property and buyer-lead system that combines public listings with practical admin workflows and referral attribution.",
     overview:
-      "This project focuses on helping a real-estate business manage listings, buyer inquiries, and agent ownership more clearly from one system.",
+      "This project supports both the customer-facing property journey and the behind-the-scenes work required to manage listings, inquiries, and agent referrals.",
     problem:
-      "Buyer inquiries can come from different agents and platforms, so attribution can become unclear when the first referral click and the actual selling agent are not the same person.",
+      "Buyer inquiries arrive from different agents and platforms. The business needs organized records and a clear workflow so leads can be followed up and credited accurately.",
     role:
-      "Web development, interface improvements, admin workflow design, troubleshooting, and referral-attribution planning.",
+      "Web development, admin workflow design, interface improvements, mobile testing, issue troubleshooting, and referral-attribution planning.",
     solution: [
-      "Structured buyer leads so referral-source information can be recorded when an inquiry enters the system.",
-      "Designed the admin flow around clear lead ownership instead of relying only on a raw link click.",
-      "Improved mobile presentation for buyer-lead management and day-to-day admin use.",
-      "Preserved existing routes and functionality while modernizing the user experience.",
+      "Structured buyer inquiries so referral-source information can be recorded when a lead enters the system.",
+      "Designed clearer admin workflows for property records, buyer follow-up, and lead ownership.",
+      "Improved the mobile presentation used for day-to-day buyer-lead management.",
+      "Preserved working routes and business rules while improving usability and maintainability.",
     ],
     technologies: ["PHP", "MySQL", "JavaScript", "Responsive UI", "Admin Workflows"],
     highlights: [
-      "Buyer lead management",
+      "Buyer inquiry handling",
+      "Property record administration",
       "Agent referral logic",
-      "Admin dashboard workflows",
-      "Mobile UI improvements",
+      "Mobile workflow testing",
     ],
-    note: "Public case study uses business-safe wording and does not expose private customer data.",
+    transferableSkills: ["Admin support", "Record accuracy", "Customer follow-up", "Business-system logic"],
+    note: "The case study uses business-safe wording and excludes private customer records and administrator credentials.",
     screenshot: "/projects/realestate.png",
+    imageAlt: "Triple Vision Realty public property interface",
+    imageLabel: "Project interface",
     liveUrl: "https://triplevisionrealty.infinityfree.me/RealEstate/admin/login.php",
     liveLabel: "View Admin Login",
     visualClass: "real-estate",
   },
   {
-    slug: "retail-ordering-platform",
-    label: "E-commerce & Operations",
-    title: "Soy Yummy E-commerce Platform",
+    slug: "milk-tea-ecommerce-concept",
+    label: "Self-Directed E-commerce Concept",
+    title: "Milk Tea E-commerce Experience",
     summary:
-      "A customer and admin platform supporting ordering, products, inventory, POS workflows, and branch operations.",
+      "An original storefront concept that turns a customizable drink menu into a clear pickup, delivery, cart, and checkout journey.",
     overview:
-      "This platform brings customer ordering and internal retail operations together, with role-based admin tools and branch-aware workflows.",
+      "Created independently for portfolio demonstration, this fictional milk-tea storefront explores how customers can discover drinks, choose an ordering method, review a cart, and move toward checkout without unnecessary friction.",
     problem:
-      "The business needed one digital platform where customers can order while staff can manage products, stock-related workflows, branch operations, and sales activity.",
+      "A growing beverage shop needs an online ordering experience that makes a varied menu easy to browse while keeping product choices, fulfillment options, and the cart understandable on desktop and mobile.",
     role:
-      "Full-stack implementation support, database setup, UI iteration, debugging, admin/customer workflow testing, and deployment preparation.",
+      "Concept planning, information architecture, customer-flow mapping, responsive interface design, e-commerce workflow design, and quality review.",
     solution: [
-      "Built customer-facing ordering flows and admin-side management interfaces.",
-      "Worked with role-based access, products, branches, inventory-related records, POS workflows, and order states.",
-      "Troubleshot database and Prisma setup issues during the move to a modern application stack.",
-      "Iterated the interface to keep operational actions easy to find and use.",
+      "Organized drink discovery around recognizable categories and a focused popular-products area.",
+      "Mapped product selection and customization so variants, quantities, and add-ons can be reviewed before checkout.",
+      "Separated pickup and delivery choices early in the journey to make fulfillment expectations clearer.",
+      "Designed a persistent cart summary that keeps selected items, quantities, and the checkout action visible.",
+      "Planned the customer-facing experience with future product and order maintenance workflows in mind.",
     ],
-    technologies: ["PHP", "MySQL", "JavaScript", "Responsive UI", "E-commerce"],
+    technologies: ["UI Concept", "Responsive Design", "E-commerce UX", "Order Workflows", "QA Planning"],
     highlights: [
-      "Customer ordering",
-      "Branch-aware operations",
-      "Admin and POS workflows",
-      "Database-driven business logic",
+      "Product discovery",
+      "Pickup and delivery flow",
+      "Cart and checkout planning",
+      "Responsive customer journey",
     ],
-    note: "No sales figures or performance claims are shown unless they can be verified and approved for public use.",
-    screenshot: "/projects/soy-yummy.png",
-    liveUrl: "https://soyyummy.infinityfreeapp.com/",
-    liveLabel: "View Live Website",
-    visualClass: "retail",
+    transferableSkills: ["Customer journey design", "Workflow planning", "Quality review", "Clear interfaces"],
+    note: "Original self-directed portfolio concept. It is not a live client store and uses no client assets, customer data, proprietary material, or performance claims.",
+    screenshot: "/projects/milk-tea-commerce-concept.png",
+    imageAlt: "Original self-directed milk tea e-commerce interface concept",
+    imageLabel: "Self-directed concept",
+    visualClass: "commerce",
+  },
+  {
+    slug: "customer-loyalty-system",
+    label: "Customer Experience and System Support",
+    title: "Chuchu Milktea Loyalty Kiosk",
+    summary:
+      "A tablet-first customer loyalty flow connected to Loyverse receipt data and designed for reliable in-store use.",
+    overview:
+      "This live client project supports customers claiming loyalty points while handling receipt synchronization, identity checks, time windows, and kiosk behavior behind the scenes.",
+    problem:
+      "The customer experience needed to stay simple while the system reliably handled pending receipts, individual claim windows, browser polling, and third-party data.",
+    role:
+      "PHP development, Loyverse API integration, customer-flow improvements, troubleshooting, timeout and queue logic, deployment, and ongoing client support.",
+    solution: [
+      "Built and refined a clear tablet experience for customers claiming loyalty points.",
+      "Worked on receipt polling and synchronization for browser-based kiosk operation.",
+      "Separated claim windows by customer so one person does not affect another customer's available time.",
+      "Supported live deployment, kiosk-browser setup, and production issue investigation.",
+    ],
+    technologies: ["PHP", "MySQL", "Loyverse API", "JavaScript", "Kiosk Support"],
+    highlights: [
+      "Customer-facing guidance",
+      "Loyverse synchronization",
+      "Production troubleshooting",
+      "Tablet workflow support",
+    ],
+    transferableSkills: ["Customer support", "Issue investigation", "System familiarization", "Clear user flows"],
+    note: "Integration credentials, customer records, and private system endpoints are intentionally excluded.",
+    screenshot: "/projects/chuchumilktea.png",
+    imageAlt: "Chuchu Milktea loyalty kiosk interface",
+    imageLabel: "Project interface",
+    visualClass: "loyalty",
   },
   {
     slug: "e-borrower-library-system",
-    label: "Library & Borrower Management",
+    label: "Academic System and IT Support",
     title: "DOUS E-Borrower's Card System",
     summary:
-      "A web-based library portal for registered students and administrators, built around secure access and borrower management.",
+      "A deployed library portal for registered students and administrators, created during information technology OJT.",
     overview:
-      "This live academic system provides a dedicated portal for DMMMSU library users, with separate access for administrators and registered students.",
+      "This academic system gives library users and administrators a consistent digital workflow for borrower access, registration, and record-based services.",
     problem:
-      "Library borrower access and records need to be organized in one system so students and administrators can use a consistent digital workflow instead of relying on fragmented manual processes.",
+      "Students and administrators needed a more organized way to access borrower services instead of relying on fragmented manual processes.",
     role:
-      "Web application development, database-driven workflow implementation, interface design, testing, and deployment as an OJT project.",
+      "Web application development, database workflow implementation, interface design, user testing, deployment, and technical support during OJT.",
     solution: [
-      "Built a dedicated web portal with separate administrator and student sign-in paths.",
-      "Created a clear onboarding path for new student accounts and returning users.",
-      "Focused the interface on straightforward access to the library borrower system.",
-      "Delivered and deployed the project as a working academic services portal.",
+      "Built separate sign-in paths for registered students and administrators.",
+      "Created a straightforward account-registration and borrower-access workflow.",
+      "Tested the user journey and supported common IT concerns in the OJT environment.",
+      "Delivered and deployed the project as a working academic-services portal.",
     ],
     technologies: ["Web Application", "Database", "JavaScript", "Responsive UI"],
     highlights: [
-      "Student and admin access",
-      "Borrower-focused workflow",
+      "Student and admin assistance",
+      "Borrower record workflows",
       "Account registration",
-      "Live deployed system",
+      "Deployed academic system",
     ],
-    note: "The public portfolio links only to the live system. Passwords, private records, and administrator data are not shared.",
-    screenshot: "/projects/DOUS.png",
+    transferableSkills: ["User support", "Data handling", "Process guidance", "Technical troubleshooting"],
+    note: "The displayed project visual uses anonymous borrower cards and demo-only login text. Passwords, private borrower records, and administrator information are not shared.",
+    screenshot: "/projects/dous-privacy-safe.png",
+    imageAlt: "Privacy-safe DOUS E-Borrower's Card System interface with anonymous demo data",
+    imageLabel: "Privacy-safe project preview",
     liveUrl: "https://e-borrower.fusiontechph.com/",
     liveLabel: "View Live System",
     visualClass: "library",
   },
+];
+
+export const certificates: PortfolioCertificate[] = [
   {
-    slug: "customer-loyalty-system",
-    label: "Customer Experience",
-    title: "Chuchu Milktea Loyalty Kiosk",
-    summary:
-      "A tablet-first loyalty kiosk that connects customer points workflows with Loyverse receipt data.",
-    overview:
-      "This project is designed for an in-store tablet/kiosk environment where customers can claim loyalty points while the system synchronizes receipt information with Loyverse.",
-    problem:
-      "The customer flow needed to be simple enough for a kiosk while handling pending receipts, claim windows, customer identification, and synchronization behavior reliably.",
-    role:
-      "PHP development, Loyverse API integration, kiosk UX improvements, debugging, timeout/queue logic, and deployment support.",
-    solution: [
-      "Built and refined customer-facing kiosk screens for a low-friction loyalty flow.",
-      "Worked on receipt polling and synchronization logic for browser-based operation.",
-      "Adjusted per-customer claim-window behavior so one customer does not consume another customer’s available time.",
-      "Supported tablet deployment and kiosk-browser setup for a focused in-store experience.",
-    ],
-    technologies: ["PHP", "MySQL", "Loyverse API", "JavaScript", "Kiosk UI"],
-    highlights: [
-      "Tablet-first interface",
-      "Loyverse receipt synchronization",
-      "Per-customer claim windows",
-      "External POS integration",
-    ],
-    note: "Sensitive integration credentials, customer records, and internal endpoints are intentionally excluded.",
-    screenshot: "/projects/chuchumilktea.png",
-    liveUrl: "",
-    liveLabel: "Visit Live Website",
-    visualClass: "loyalty",
+    title: "Real Estate Brokerage Seminar for Real Estate Salespersons",
+    issuer: "Philippines Center for Real Estate Professional Studies, Inc.",
+    date: "June 20–21, 2026",
+    category: "Real Estate · 12 Credit Units",
+    description:
+      "Completed foundational training covering professional practice, ethics, taxation, and documentation in Philippine real estate.",
+    image: "/certificates/real-estate-brokerage-seminar.png",
+    orientation: "portrait",
+  },
+  {
+    title: "No Cap, Just Clarity: The Real Deal on Explainable AI (XAI)",
+    issuer: "West Visayas State University · CICT",
+    date: "September 27, 2024",
+    category: "Artificial Intelligence",
+    description: "Participated in a webinar on emerging trends and explainable artificial intelligence.",
+    image: "/certificates/explainable-ai-webinar.png",
+    orientation: "landscape",
+  },
+  {
+    title: "Code x Creativity: Front-End Web Dev Essentials for Creatives",
+    issuer: "West Visayas State University · CICT",
+    date: "September 27, 2024",
+    category: "Front-End Development",
+    description: "Participated in a focused webinar on practical front-end foundations for creative work.",
+    image: "/certificates/front-end-web-dev-essentials.png",
+    orientation: "landscape",
+  },
+  {
+    title: "Career Development in IT: From College to Industry",
+    issuer: "West Visayas State University · CICT",
+    date: "September 28, 2024",
+    category: "Career Development",
+    description: "Completed an industry-readiness session focused on the transition from college to IT work.",
+    image: "/certificates/career-development-in-it.png",
+    orientation: "landscape",
+  },
+  {
+    title: "Let’s Talk About Azure: Insight into AZ-104",
+    issuer: "Styava.dev",
+    date: "September 25, 2024",
+    category: "Cloud and Azure",
+    description: "Participated in an introductory learning event focused on Microsoft Azure administration concepts.",
+    image: "/certificates/azure-az-104-insight.png",
+    orientation: "landscape",
   },
 ];

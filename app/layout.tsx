@@ -2,25 +2,30 @@ import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 import "./globals.css";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://john-rey-portfolio-wsj7.vercel.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "John Rey Baliguat | Technical Virtual Assistant | Web Support & Automation",
+    default: "John Rey Baliguat | Technical, Admin & Customer Support",
     template: "%s | John Rey Baliguat",
   },
   description:
-    "Remote Technical Virtual Assistant focused on website support, troubleshooting, QA, business systems, database-backed tasks, and practical automation.",
+    "John Rey Baliguat supports customers, administrative operations, business systems, websites, hardware and printer installation, maintenance, and technical workflows for remote teams.",
   keywords: [
-    "Technical Virtual Assistant",
-    "Remote Technical VA",
-    "Website Support",
-    "QA Testing",
-    "Website Maintenance",
     "Technical Support",
+    "Application Support",
+    "Customer Support",
+    "Email and Chat Support",
+    "Administrative Support",
+    "Operations Assistant",
     "Business Systems",
-    "Automation",
+    "Website Support",
+    "Hardware Installation",
+    "Printer Support",
+    "System Maintenance",
+    "QA Testing",
+    "Junior IT Support",
     "Remote Web Support",
   ],
   authors: [{ name: "John Rey Baliguat" }],
@@ -28,16 +33,16 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: siteUrl,
-    title: "John Rey Baliguat | Technical Virtual Assistant | Web Support & Automation",
+    title: "John Rey Baliguat | Technical, Admin & Customer Support",
     description:
-      "Technical VA support, website maintenance, troubleshooting, QA, business systems, and practical automation for growing businesses.",
+      "Customer support, administrative operations, business-system familiarization, website support, hardware installation, maintenance, and technical troubleshooting.",
     siteName: "John Rey Baliguat Portfolio",
   },
   twitter: {
     card: "summary_large_image",
-    title: "John Rey Baliguat | Technical Virtual Assistant | Web Support & Automation",
+    title: "John Rey Baliguat | Technical, Admin & Customer Support",
     description:
-      "Technical VA support, website maintenance, troubleshooting, QA, business systems, and practical automation for growing businesses.",
+      "Customer support, administrative operations, business-system familiarization, website support, hardware installation, maintenance, and technical troubleshooting.",
   },
 };
 

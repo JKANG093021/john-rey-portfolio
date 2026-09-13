@@ -1,173 +1,189 @@
 import Image from "next/image";
+import Link from "next/link";
 import {
+  ArrowDownRight,
   ArrowRight,
+  Award,
   BadgeCheck,
+  Bot,
   BriefcaseBusiness,
+  Building2,
+  Check,
+  ClipboardCheck,
   Code2,
   Database,
-  Github,
-  Linkedin,
-  Mail,
-  MessageCircleMore,
-  MonitorCog,
-  Puzzle,
-  Rocket,
-  Sparkles,
-  Workflow,
-  Users,
-  SearchCheck,
-  TestTube2,
-  Send,
-  Clock3,
-  CalendarDays,
-  Hammer,
-  Check,
+  Download,
   ExternalLink,
   FileText,
+  GraduationCap,
+  Headphones,
+  Mail,
+  MapPin,
+  MessageSquareText,
+  MonitorCog,
+  Network,
+  Printer,
+  SearchCheck,
+  ShieldCheck,
+  Sparkles,
+  UserRoundCheck,
+  Wrench,
 } from "lucide-react";
-import { Nav } from "@/components/Nav";
-import { Reveal } from "@/components/Reveal";
-import { ProjectPreview } from "@/components/ProjectPreview";
-import { TypewriterOnScroll } from "@/components/TypewriterOnScroll";
 import { ContactForm } from "@/components/ContactForm";
+import { Nav } from "@/components/Nav";
+import { ProjectPreview } from "@/components/ProjectPreview";
+import { Reveal } from "@/components/Reveal";
 import { TechMarquee } from "@/components/TechMarquee";
-import { profile, projects } from "@/data/portfolio";
+import { certificates, profile, projects } from "@/data/portfolio";
 
-const services = [
+const supportAreas = [
   {
-    icon: Users,
-    title: "Technical Virtual Assistance",
-    text: "Ongoing remote support for websites, admin systems, technical tasks, documentation, testing, and day-to-day digital operations.",
+    number: "01",
+    icon: Headphones,
+    label: "Customer-facing",
+    title: "Customer Support and User Assistance",
+    text: "Clear email or chat assistance, process guidance, inquiry follow-up, and useful escalation notes when an issue needs another team member.",
+    examples: ["Email and chat support", "User guidance", "Inquiry follow-up"],
   },
   {
+    number: "02",
+    icon: BriefcaseBusiness,
+    label: "Behind the scenes",
+    title: "Administrative and Operations Support",
+    text: "Accurate record updates, organized documentation, recurring digital tasks, and dependable support for the workflows that keep a team moving.",
+    examples: ["Admin dashboards", "Records and documentation", "Recurring tasks"],
+  },
+  {
+    number: "03",
+    icon: Network,
+    label: "Platform-focused",
+    title: "Business System Familiarization",
+    text: "I learn user roles, status flows, standard procedures, business rules, and common requests so I can work accurately inside an unfamiliar platform.",
+    examples: ["SOP familiarization", "Workflow support", "Issue escalation"],
+  },
+  {
+    number: "04",
     icon: MonitorCog,
-    title: "Website Support & Troubleshooting",
-    text: "Website updates, bug investigation, maintenance, deployment help, forms, and practical fixes without unnecessary rebuilds.",
-  },
-  {
-    icon: Database,
-    title: "Business Systems & Data Support",
-    text: "Database-backed admin tools, customer workflows, records, reporting, and operational system support.",
-  },
-  {
-    icon: Workflow,
-    title: "Automation & API Integrations",
-    text: "API connections, form and email flows, and practical automation that reduces repetitive work and manual handoffs.",
+    label: "Technical",
+    title: "IT Installation, Maintenance and Web Support",
+    text: "Website and system maintenance, software setup, basic hardware installation, printer and peripheral support, troubleshooting, quality checks, and practical fixes.",
+    examples: ["Printer and device setup", "System maintenance", "Web troubleshooting"],
   },
 ];
 
-const skills = [
-  "Technical Virtual Assistance",
-  "Website Management",
-  "Bug Troubleshooting",
-  "QA Testing",
-  "Deployment Support",
-  "Technical Documentation",
-  "Database Support",
-  "REST APIs",
-  "PHP",
-  "JavaScript",
-  "MySQL",
-  "PostgreSQL",
-  "Next.js",
-  "Git / Version Control",
-];
-
-const growth = ["TypeScript", "n8n / Make / Zapier", "Advanced Next.js"];
-
-
-const process = [
+const foundations = [
   {
-    icon: SearchCheck,
-    step: "01",
-    title: "Understand & prioritize",
-    text: "I clarify the request, current setup, urgency, and what a successful result should look like before changing anything.",
+    icon: Printer,
+    title: "Hardware, installation and maintenance",
+    text: "My first professional role was as a hardware technician. I am comfortable with careful diagnosis, basic component and peripheral installation, printer setup, drivers, and practical maintenance.",
   },
   {
-    icon: MonitorCog,
-    step: "02",
-    title: "Investigate & work",
-    text: "I trace the issue or task, work within the existing setup, and use code only when the job actually needs it.",
-  },
-  {
-    icon: TestTube2,
-    step: "03",
-    title: "Test & verify",
-    text: "I check the real workflow, mobile behavior, edge cases, and the parts that matter to day-to-day business use.",
-  },
-  {
-    icon: Send,
-    step: "04",
-    title: "Update & document",
-    text: "I explain what changed, record important details, and keep the next steps clear for ongoing support.",
-  },
-];
-
-
-const workOptions = [
-  {
-    icon: CalendarDays,
-    title: "Part-Time Technical VA",
-    text: "Ongoing weekly support for businesses that need a dependable technical person to maintain websites, systems, and recurring digital tasks.",
-    fit: ["Recurring weekly support", "Website & system upkeep", "Documentation & coordination"],
-  },
-  {
-    icon: Clock3,
-    title: "Hourly Technical Support",
-    text: "Flexible help for website fixes, updates, QA, troubleshooting, deployment tasks, forms, and smaller technical requests as they come up.",
-    fit: ["Flexible task support", "Bug fixing & QA", "Website maintenance"],
-  },
-  {
-    icon: Hammer,
-    title: "Project-Based Technical Work",
-    text: "A defined technical improvement with a clear scope, such as a website feature, internal tool, workflow, integration, or automation.",
-    fit: ["Defined deliverables", "Business systems", "Automation & integrations"],
-  },
-];
-
-const faqs = [
-  {
-    q: "Can you work as an ongoing Technical VA?",
-    a: "Yes. My main positioning is recurring technical support for businesses that need help maintaining websites, systems, troubleshooting issues, testing workflows, documenting changes, and handling technical tasks without needing a full-time developer.",
-  },
-  {
-    q: "Can you work with an existing website instead of rebuilding it?",
-    a: "Yes. I can troubleshoot, maintain, improve, test, or extend an existing website when a full rebuild is not necessary.",
-  },
-  {
-    q: "What kinds of technical VA tasks can you handle?",
-    a: "Website updates, bug investigation, forms, database-backed admin tasks, QA testing, deployment support, technical documentation, system upkeep, and practical integrations are good fits for my current skill set.",
-  },
-  {
-    q: "Do you also code when a task needs it?",
-    a: "Yes. My web development background lets me go beyond routine admin work when a website or system needs PHP, JavaScript, database changes, API work, or a practical custom fix.",
-  },
-  {
-    q: "Do you also handle automation?",
-    a: "I can work on practical API and workflow integrations, while continuing to expand deeper no-code automation skills with tools such as n8n, Make, and Zapier.",
-  },
-];
-
-const strengths = [
-  {
-    icon: BadgeCheck,
-    title: "Dependable Support",
-    text: "I can stay close to the day-to-day technical work instead of treating every task like a separate development project.",
-  },
-  {
-    icon: MessageCircleMore,
-    title: "Clear Communication",
-    text: "Clear updates, practical explanations, and straightforward next steps throughout the work.",
-  },
-  {
-    icon: Puzzle,
-    title: "Technical Problem Solver",
-    text: "I trace issues, test practical fixes, and work with the existing system before recommending bigger changes.",
+    icon: UserRoundCheck,
+    title: "Hands-on IT support during OJT",
+    text: "I helped users with everyday technical concerns, including internet connectivity, while working in an academic environment.",
   },
   {
     icon: Code2,
-    title: "Development Background",
-    text: "When a support task needs code, databases, APIs, or a custom fix, I can work deeper than a typical general VA.",
+    title: "Client website and system work",
+    text: "My web background lets me investigate more deeply when an admin, customer, or support issue reaches the website, database, or integration layer.",
+  },
+  {
+    icon: Building2,
+    title: "Early real-estate industry exposure",
+    text: "Property-platform work and a 12-credit-unit brokerage seminar introduced me to listing, buyer-inquiry, ethics, taxation, and documentation-oriented workflows.",
+  },
+];
+
+const roleMatches = [
+  "Technical or Application Support",
+  "Customer Support by Email or Chat",
+  "Administrative or Operations Assistant",
+  "Website and System Support",
+  "Junior IT Support",
+  "Hardware Installation and Maintenance Support",
+];
+
+const systemSteps = [
+  {
+    number: "01",
+    title: "Understand the workflow",
+    text: "Learn what the platform is for, who uses it, and what a correct outcome looks like.",
+  },
+  {
+    number: "02",
+    title: "Follow the operating process",
+    text: "Study the SOP, user roles, status meanings, common requests, and escalation path.",
+  },
+  {
+    number: "03",
+    title: "Handle and verify",
+    text: "Complete routine tasks carefully, communicate clearly, and confirm that the result is correct.",
+  },
+  {
+    number: "04",
+    title: "Document what matters",
+    text: "Record useful context, recurring issues, and improvements so the next task becomes easier.",
+  },
+];
+
+const skillGroups = [
+  {
+    title: "Support and Administration",
+    icon: ClipboardCheck,
+    items: [
+      "Customer assistance",
+      "Email and chat communication",
+      "Inquiry follow-up",
+      "Admin dashboard support",
+      "Record updates",
+      "Documentation",
+      "SOP-based tasks",
+      "Clear escalation notes",
+    ],
+  },
+  {
+    title: "Systems, Maintenance and Quality",
+    icon: SearchCheck,
+    items: [
+      "Business system familiarization",
+      "Website and system maintenance",
+      "Software installation",
+      "Printer setup and drivers",
+      "Basic hardware and peripherals",
+      "Device and internet troubleshooting",
+      "Workflow testing",
+      "QA verification",
+      "Customer and admin journeys",
+      "Issue reproduction",
+    ],
+  },
+  {
+    title: "Technical Toolkit",
+    icon: Database,
+    items: [
+      "HTML and CSS",
+      "JavaScript",
+      "PHP",
+      "MySQL",
+      "PostgreSQL",
+      "Next.js",
+      "Tailwind CSS",
+      "REST APIs",
+      "Git",
+    ],
+  },
+];
+
+const aiTools = [
+  {
+    name: "ChatGPT",
+    icon: Bot,
+    text: "A personal productivity tool for research support, drafting, troubleshooting, coding assistance, and task planning.",
+  },
+  {
+    name: "Claude",
+    icon: Sparkles,
+    text: "A personal productivity tool for document analysis, code review, debugging support, and exploring implementation options.",
   },
 ];
 
@@ -177,208 +193,322 @@ export default function Home() {
       <Nav />
 
       <section id="home" className="hero section-grid-line">
-        <div className="hero-glow" />
+        <div className="hero-grid-pattern" aria-hidden="true" />
+        <div className="hero-signal hero-signal-one" aria-hidden="true" />
+        <div className="hero-signal hero-signal-two" aria-hidden="true" />
 
-        <div className="mobile-hero-backdrop" aria-hidden="true">
-          <Image
-            className="mobile-hero-backdrop-image"
-            src="/john-rey-workspace.png"
-            alt=""
-            width={1369}
-            height={1149}
-            priority
-          />
-          <div className="mobile-hero-backdrop-tint" />
-          <div className="mobile-hero-backdrop-shape" />
-        </div>
-
-        <div className="container-shell hero-grid">
+        <div className="container-shell hero-layout">
           <Reveal className="hero-copy">
-            <div className="mobile-hero-kicker">Ideas to working solutions</div>
-            <div className="eyebrow">{profile.role}</div>
+            <div className="hero-identity">
+              <span>{profile.fullName}</span>
+              <span className="hero-identity-divider" />
+              <span><MapPin size={14} /> {profile.location} · Remote</span>
+            </div>
+
+            <p className="eyebrow">Technical support · Admin operations · Customer support</p>
             <h1>
-              Hi, I&apos;m <span>{profile.name}.</span>
+              Reliable support for the work your customers see
+              <span> and the systems behind it.</span>
             </h1>
-
-
-            <h2>I help businesses keep websites, systems, and technical workflows running smoothly.</h2>
             <p className="hero-text">
-              I provide hands-on remote support for website updates, troubleshooting, QA,
-              database-backed tasks, deployments, API integrations, and practical automation.
+              I&apos;m a BS Information Technology graduate who can assist with customer communication,
+              administrative workflows, business platforms, websites, hardware and peripheral installation,
+              and ongoing maintenance. I learn systems carefully, communicate clearly, and stay with the task until it is verified.
             </p>
 
-            <div className="mobile-hero-capabilities" aria-label="Core services">
-              <div>
-                <Users size={28} />
-                <span>Technical<br />VA</span>
-              </div>
-              <div>
-                <MonitorCog size={28} />
-                <span>Web<br />Support</span>
-              </div>
-              <div>
-                <TestTube2 size={28} />
-                <span>QA &<br />Testing</span>
-              </div>
-              <div>
-                <Workflow size={28} />
-                <span>Automation</span>
-              </div>
-            </div>
-
-            <div className="mobile-hero-motto" aria-label="Support, maintain, test, automate">
-              <span className="mobile-hero-motto-line" />
-              <span>Support</span><b>•</b><span>Maintain</span><b>•</b><span>Test</span><b>•</b><span>Automate</span>
-            </div>
-
             <div className="hero-actions">
-              <a className="primary-button" href="#projects">
-                View My Work <ArrowRight size={18} />
+              <a className="primary-button" href="#support">
+                See How I Can Help <ArrowDownRight size={18} />
               </a>
-              <a className="secondary-button" href="#contact">
-                Contact Me
+              <a className="secondary-button" href={profile.resumeHref} download>
+                <Download size={18} /> Download ATS Resume
               </a>
             </div>
 
-            <div className="availability">
+            <div className="hero-availability" aria-label="Current work availability">
               <span className="status-dot" />
-              <span>Available for Remote</span>
-              <span className="bullet">•</span>
-              <span>Hourly</span>
-              <span className="bullet">•</span>
-              <span>Part-time</span>
-              <span className="bullet">•</span>
-              <span>Project-based Work</span>
+              <strong>Open to remote roles</strong>
+              <span>Full-time · Part-time · Project-based</span>
             </div>
           </Reveal>
 
-          <Reveal delay={120} className="desktop-hero-visual">
-            <div className="hero-art hero-portrait-art" aria-label="Portrait of John Rey Baliguat">
-              <div className="orb orb-one" />
-              <div className="orb orb-two" />
-              <div className="portrait-halo" />
-
-              <div className="portrait-ring">
-                <div className="portrait-frame">
-                  <div className="portrait-grid" aria-hidden="true" />
-                  <Image
-                    className="hero-portrait-image"
-                    src="/john-rey-workspace.png"
-                    alt="John Rey Baliguat working at a modern web development workspace"
-                    width={1369}
-                    height={1149}
-                    priority
-                  />
-                  <div className="portrait-blend" aria-hidden="true" />
+          <Reveal className="hero-visual" delay={100}>
+            <div className="portrait-panel">
+              <div className="portrait-image-wrap">
+                <Image
+                  className="portrait-image"
+                  src="/john-rey-workspace.png"
+                  alt="John Rey Baliguat at his workspace"
+                  fill
+                  priority
+                  sizes="(max-width: 900px) 100vw, 46vw"
+                />
+                <div className="portrait-overlay" aria-hidden="true" />
+                <div className="portrait-badge">
+                  <GraduationCap size={18} />
+                  <span><strong>BS Information Technology</strong><small>Technical foundation</small></span>
                 </div>
               </div>
 
-              <div className="floating-skill skill-one">
-                <MonitorCog size={18} /> Support
+              <div className="support-ledger" aria-label="Support areas">
+                <p>Support spectrum</p>
+                <div><span>01</span><strong>Customer assistance</strong></div>
+                <div><span>02</span><strong>Admin operations</strong></div>
+                <div><span>03</span><strong>Business systems</strong></div>
+                <div><span>04</span><strong>Web, devices and maintenance</strong></div>
               </div>
-              <div className="floating-skill skill-two">
-                <TestTube2 size={18} /> Test
-              </div>
-              <div className="floating-skill skill-three">
-                <Workflow size={18} /> Automate
-              </div>
+            </div>
+            <p className="portrait-caption">
+              Technical enough to investigate the issue. Clear enough to guide the person using the system.
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="proof-strip-section section-grid-line" aria-label="Professional foundation">
+        <div className="container-shell proof-strip">
+          <div className="proof-item"><GraduationCap size={20} /><span><small>Education</small><strong>BS Information Technology</strong></span></div>
+          <div className="proof-item"><BadgeCheck size={20} /><span><small>Experience</small><strong>Approx. 2 years hands-on</strong></span></div>
+          <div className="proof-item"><Wrench size={20} /><span><small>Foundation</small><strong>Hardware, printer and web troubleshooting</strong></span></div>
+          <div className="proof-item"><ShieldCheck size={20} /><span><small>Work style</small><strong>Careful, practical, verified</strong></span></div>
+        </div>
+      </section>
+
+      <section id="about" className="section section-grid-line about-section">
+        <div className="container-shell about-layout">
+          <Reveal>
+            <p className="eyebrow">Beyond web development</p>
+            <h2 className="section-title">A broader support professional with technical depth.</h2>
+            <p className="section-lead">
+              Web development is one part of what I bring. I can also support the people, records,
+              routines, and business systems around the website—the work that needs patience,
+              accuracy, and dependable follow-through every day.
+            </p>
+            <div className="about-quote">
+              <MessageSquareText size={22} />
+              <p>My goal is simple: understand the process, help the user, solve what I can, and escalate clearly when needed.</p>
+            </div>
+          </Reveal>
+
+          <div className="foundation-list">
+            {foundations.map(({ icon: Icon, title, text }, index) => (
+              <Reveal key={title} delay={index * 60}>
+                <article className="foundation-item">
+                  <div className="foundation-icon"><Icon size={21} /></div>
+                  <div><h3>{title}</h3><p>{text}</p></div>
+                </article>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="support" className="section section-grid-line support-section">
+        <div className="container-shell">
+          <Reveal className="section-heading split-heading">
+            <div>
+              <p className="eyebrow">Where I can contribute</p>
+              <h2 className="section-title">One reliable person across four support lanes.</h2>
+            </div>
+            <p>
+              A practical blend for teams that need someone comfortable with customers,
+              administration, software workflows, and technical problem-solving.
+            </p>
+          </Reveal>
+
+          <div className="support-grid">
+            {supportAreas.map(({ number, icon: Icon, label, title, text, examples }, index) => (
+              <Reveal key={title} delay={index * 55}>
+                <article className="support-card">
+                  <div className="support-card-top"><span>{number}</span><Icon size={23} /></div>
+                  <p className="support-label">{label}</p>
+                  <h3>{title}</h3>
+                  <p>{text}</p>
+                  <ul>
+                    {examples.map((example) => <li key={example}><Check size={14} /> {example}</li>)}
+                  </ul>
+                </article>
+              </Reveal>
+            ))}
+          </div>
+
+          <Reveal className="role-match">
+            <div>
+              <span className="role-match-kicker">Open to the right role</span>
+              <h3>Roles I can support now and continue growing into</h3>
+            </div>
+            <div className="role-match-list">
+              {roleMatches.map((role) => <span key={role}>{role}</span>)}
             </div>
           </Reveal>
         </div>
       </section>
 
-      <section className="proof-strip-section section-grid-line" aria-label="Portfolio proof points">
-        <div className="container-shell proof-strip">
-          <div className="proof-item"><Users size={19} /><span><strong>Technical VA Support</strong><small>Websites, systems, and recurring tasks</small></span></div>
-          <div className="proof-item"><TestTube2 size={19} /><span><strong>QA & Troubleshooting</strong><small>Hands-on issue tracing and testing</small></span></div>
-          <div className="proof-item"><Workflow size={19} /><span><strong>API Integration</strong><small>External system experience</small></span></div>
-          <div className="proof-item"><BadgeCheck size={19} /><span><strong>Remote Available</strong><small>Hourly, part-time, or project-based</small></span></div>
+      <section id="projects" className="section section-grid-line projects-section">
+        <div className="container-shell">
+          <Reveal className="section-heading split-heading">
+            <div>
+              <p className="eyebrow">Selected work</p>
+              <h2 className="section-title">Systems that prove how I think and support.</h2>
+            </div>
+            <p>
+              These projects show more than code: they involve customer journeys, admin records,
+              user guidance, business rules, troubleshooting, and real-world workflow decisions.
+            </p>
+          </Reveal>
+
+          <div className="work-grid">
+            {projects.map((project, index) => (
+              <Reveal key={project.slug} delay={index * 70} className={index === 0 ? "work-featured-wrap" : ""}>
+                <article className={`work-card ${index === 0 ? "work-card-featured" : ""}`}>
+                  <div className={`work-visual ${project.visualClass}`}>
+                    <div className="work-browser-bar"><span /><span /><span /><small>Selected project</small></div>
+                    <ProjectPreview project={project} />
+                  </div>
+                  <div className="work-content">
+                    <p className="work-label">{project.label}</p>
+                    <h3>{project.title}</h3>
+                    <p>{project.summary}</p>
+                    <div className="transferable-list" aria-label="Transferable skills demonstrated">
+                      {project.transferableSkills.map((skill) => <span key={skill}>{skill}</span>)}
+                    </div>
+                    <div className="work-links">
+                      <Link href={`/projects/${project.slug}`}>Read case study <ArrowRight size={16} /></Link>
+                      {project.liveUrl ? (
+                        <a href={project.liveUrl} target="_blank" rel="noreferrer">
+                          {project.liveLabel ?? "View live system"} <ExternalLink size={15} />
+                        </a>
+                      ) : null}
+                    </div>
+                  </div>
+                </article>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="systems" className="section section-grid-line systems-section">
+        <div className="container-shell systems-layout">
+          <Reveal className="systems-intro">
+            <p className="eyebrow">Business system familiarization</p>
+            <h2 className="section-title">I learn the workflow before I act inside it.</h2>
+            <p className="section-lead">
+              Every company has different tools and rules. I start with the platform&apos;s purpose,
+              user roles, SOPs, common requests, status meanings, and escalation path so I can
+              support the business accurately instead of guessing.
+            </p>
+            <div className="systems-note"><BadgeCheck size={18} /> Comfortable learning unfamiliar dashboards and database-backed systems.</div>
+          </Reveal>
+
+          <div className="system-steps">
+            {systemSteps.map((step, index) => (
+              <Reveal key={step.number} delay={index * 55}>
+                <article className="system-step">
+                  <span>{step.number}</span>
+                  <div><h3>{step.title}</h3><p>{step.text}</p></div>
+                </article>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="skills" className="section section-grid-line skills-section">
+        <div className="container-shell">
+          <Reveal className="section-heading split-heading">
+            <div>
+              <p className="eyebrow">Capabilities and tools</p>
+              <h2 className="section-title">Useful on day one. Ready to keep learning.</h2>
+            </div>
+            <p>
+              I combine support habits with enough technical depth to understand the system,
+              reproduce issues, and communicate clearly with both users and developers.
+            </p>
+          </Reveal>
+
+          <div className="skill-groups">
+            {skillGroups.map(({ title, icon: Icon, items }, index) => (
+              <Reveal key={title} delay={index * 65}>
+                <article className="skill-group">
+                  <div className="skill-group-heading"><Icon size={20} /><h3>{title}</h3></div>
+                  <div className="skill-list">{items.map((item) => <span key={item}>{item}</span>)}</div>
+                </article>
+              </Reveal>
+            ))}
+          </div>
+
+          <Reveal className="ai-toolbox">
+            <div className="ai-toolbox-intro">
+              <span><Bot size={18} /> Personal AI toolkit</span>
+              <h3>AI-assisted work, reviewed with human judgment.</h3>
+              <p>I use these tools personally to work more efficiently, then check the details, output, and final result myself.</p>
+            </div>
+            <div className="ai-tool-list">
+              {aiTools.map(({ name, icon: Icon, text }) => (
+                <article key={name} className="ai-tool-card">
+                  <div className="ai-tool-icon"><Icon size={19} /></div>
+                  <div><h4>{name}</h4><p>{text}</p></div>
+                </article>
+              ))}
+            </div>
+          </Reveal>
+
+          <Reveal className="growth-note">
+            <span>Currently expanding</span>
+            <p>TypeScript · n8n · Make · Zapier · advanced Next.js workflows</p>
+          </Reveal>
         </div>
       </section>
 
       <TechMarquee />
 
-      <section id="about" className="section section-grid-line">
-        <div className="container-shell about-grid">
-          <Reveal>
-            <div className="eyebrow">About</div>
-            <h2 className="section-title">A technical VA who understands the systems behind the task.</h2>
-          </Reveal>
-          <Reveal className="about-copy" delay={100}>
+      <section id="certificates" className="section section-grid-line certificates-section">
+        <div className="container-shell">
+          <Reveal className="section-heading split-heading">
+            <div>
+              <p className="eyebrow">Certificates and continuous learning</p>
+              <h2 className="section-title">Training that adds context to my technical foundation.</h2>
+            </div>
             <p>
-              I&apos;m {profile.fullName}. My web development background lets me handle more than routine admin work: I can maintain websites, troubleshoot issues, test workflows, support database-backed systems, and make practical technical improvements when needed.
+              Verified participation across front-end development, explainable AI, Azure,
+              career readiness, and an introductory real-estate salesperson seminar.
+              Select any certificate to view the original image.
             </p>
-            <div className="about-highlights">
-              <span><BadgeCheck size={17} /> Website & system upkeep</span>
-              <span><BadgeCheck size={17} /> Troubleshooting & QA</span>
-              <span><BadgeCheck size={17} /> Clear technical communication</span>
-            </div>
           </Reveal>
-        </div>
-      </section>
 
-      <section id="services" className="section section-grid-line">
-        <div className="container-shell">
-          <div className="section-heading-row">
-            <div>
-              <div className="eyebrow">Services</div>
-              <h2 className="section-title">Technical support that goes beyond admin tasks</h2>
-            </div>
-          </div>
-
-          <div className="services-grid">
-            {services.map(({ icon: Icon, title, text }, index) => (
-              <Reveal key={title} delay={index * 55}>
-                <article className="service-card">
-                  <div className="icon-box"><Icon size={23} /></div>
-                  <h3>{title}</h3>
-                  <p>{text}</p>
-                </article>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="projects" className="section section-grid-line">
-        <div className="container-shell">
-          <div className="eyebrow">Projects</div>
-          <h2 className="section-title"><TypewriterOnScroll text="Featured Work" /></h2>
-
-          <div className="projects-grid">
-            {projects.map((project, index) => (
-              <Reveal key={project.title} delay={index * 80}>
-                <article className="project-card">
-                  <div className={`project-visual ${project.visualClass}`}>
-                    <div className="visual-window">
-                      <div className="visual-topbar"><span /><span /><span /></div>
-                      <div className="visual-body preview-body">
-                        <ProjectPreview project={project} />
-                      </div>
+          <div className="certificate-grid">
+            {certificates.map((certificate, index) => (
+              <Reveal
+                key={certificate.title}
+                delay={index * 55}
+                className={index === 0 ? "certificate-featured-wrap" : ""}
+              >
+                <article className={`certificate-card certificate-${certificate.orientation} ${index === 0 ? "certificate-featured" : ""}`}>
+                  <a
+                    className="certificate-image-frame"
+                    href={certificate.image}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`View ${certificate.title} certificate at full size`}
+                  >
+                    <Image
+                      className="certificate-image"
+                      src={certificate.image}
+                      alt={`${certificate.title} certificate awarded to ${profile.fullName}`}
+                      fill
+                      sizes={index === 0 ? "(max-width: 700px) 100vw, 360px" : "(max-width: 700px) 100vw, 50vw"}
+                    />
+                    <span className="certificate-view">View full certificate <ExternalLink size={14} /></span>
+                  </a>
+                  <div className="certificate-copy">
+                    <span className="certificate-category"><Award size={14} /> {certificate.category}</span>
+                    <h3>{certificate.title}</h3>
+                    <div className="certificate-meta">
+                      <span>{certificate.issuer}</span>
+                      <span>{certificate.date}</span>
                     </div>
-                  </div>
-                  <div className="project-content">
-                    <p className="project-label">{project.label}</p>
-                    <h3>{project.title}</h3>
-                    <p>{project.summary}</p>
-                    <div className="chips">
-                      {project.technologies.slice(0, 3).map((chip) => <span key={chip}>{chip}</span>)}
-                    </div>
-                    <div className="project-links">
-                      <a className="project-link" href={`/projects/${project.slug}`}>
-                        View case study <ArrowRight size={16} />
-                      </a>
-                      {project.liveUrl && (
-                        <a
-                          className="project-link live-project-link"
-                          href={project.liveUrl}
-                          target="_blank"
-                          rel="noreferrer"
-                        >
-                          {project.liveLabel || "Live website"} <ExternalLink size={15} />
-                        </a>
-                      )}
-                    </div>
+                    <p>{certificate.description}</p>
                   </div>
                 </article>
               </Reveal>
@@ -387,169 +517,60 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="process" className="section section-grid-line">
-        <div className="container-shell">
-          <Reveal>
-            <div className="eyebrow">How I Work</div>
-            <h2 className="section-title">Clear process. Practical delivery.</h2>
-            <p className="section-intro">
-              For recurring VA work or one-off technical issues, I keep tasks organized, testable, and focused on what the business actually needs.
+      <section id="resume" className="section section-grid-line resume-promo-section">
+        <div className="container-shell resume-promo">
+          <Reveal className="resume-promo-copy">
+            <p className="eyebrow">Recruiter-ready resume</p>
+            <h2 className="section-title">A clean ATS resume built for support, admin, and technical roles.</h2>
+            <p>
+              The downloadable resume uses a single-column structure, standard section names,
+              selectable text, and direct role keywords. It avoids graphics, rating bars, and
+              multi-column layouts that can confuse applicant tracking systems.
             </p>
-          </Reveal>
-          <div className="process-grid">
-            {process.map(({ icon: Icon, step, title, text }, index) => (
-              <Reveal key={step} delay={index * 65}>
-                <article className="process-card">
-                  <div className="process-top"><span>{step}</span><Icon size={21} /></div>
-                  <h3>{title}</h3>
-                  <p>{text}</p>
-                </article>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="work-options" className="section section-grid-line">
-        <div className="container-shell">
-          <Reveal>
-            <div className="eyebrow">Ways to Work Together</div>
-            <h2 className="section-title">Technical support that fits the way your business works.</h2>
-            <p className="section-intro">
-              Choose recurring Technical VA support, flexible hourly help, or a defined technical project depending on your workload.
-            </p>
-          </Reveal>
-
-          <div className="engagement-grid">
-            {workOptions.map(({ icon: Icon, title, text, fit }, index) => (
-              <Reveal key={title} delay={index * 70}>
-                <article className="engagement-card">
-                  <div className="icon-box"><Icon size={23} /></div>
-                  <h3>{title}</h3>
-                  <p>{text}</p>
-                  <div className="engagement-fit">
-                    {fit.map((item) => <span key={item}><Check size={15} /> {item}</span>)}
-                  </div>
-                  <a href="#contact" className="engagement-link">Contact Me <ArrowRight size={15} /></a>
-                </article>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="skills" className="section section-grid-line">
-        <div className="container-shell skills-layout">
-          <div>
-            <div className="eyebrow">Core Skills</div>
-            <h2 className="section-title">Technical support skills & tools</h2>
-            <div className="skill-cloud">
-              {skills.map((skill) => <span key={skill}>{skill}</span>)}
-            </div>
-          </div>
-
-          <aside className="growth-card">
-            <p>Currently learning & expanding</p>
-            {growth.map((item) => (
-              <div key={item} className="growth-item">
-                <Sparkles size={16} /> {item}
-              </div>
-            ))}
-          </aside>
-        </div>
-      </section>
-
-      <section id="why-me" className="section section-grid-line">
-        <div className="container-shell">
-          <div className="eyebrow">Why Work With Me</div>
-          <h2 className="section-title">Technical support with a developer&apos;s problem-solving mindset</h2>
-          <div className="strengths-grid">
-            {strengths.map(({ icon: Icon, title, text }) => (
-              <div className="strength-item" key={title}>
-                <div className="strength-icon"><Icon size={21} /></div>
-                <div>
-                  <h3>{title}</h3>
-                  <p>{text}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="faq" className="section section-grid-line">
-        <div className="container-shell faq-layout">
-          <Reveal>
-            <div className="eyebrow">FAQ</div>
-            <h2 className="section-title">Before we work together</h2>
-            <p className="section-intro">Quick answers for clients considering remote technical support.</p>
-          </Reveal>
-          <div className="faq-list">
-            {faqs.map((item, index) => (
-              <Reveal key={item.q} delay={index * 45}>
-                <details className="faq-item">
-                  <summary>{item.q}<span>+</span></summary>
-                  <p>{item.a}</p>
-                </details>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="contact" className="section contact-section section-grid-line">
-        <div className="container-shell contact-grid contact-grid-form">
-          <Reveal>
-            <div>
-              <div className="eyebrow">Let&apos;s Connect</div>
-              <h2 className="section-title">Need dependable technical support?</h2>
-              <p className="contact-copy">
-                Tell me what website, system, or recurring technical tasks you need help with and whether you prefer part-time, hourly, or project-based support.
-              </p>
-              <div className="contact-actions">
-                <a className="secondary-button" href={`mailto:${profile.email}`}>
-                  <Mail size={18} /> {profile.email}
-                </a>
-                {profile.linkedin ? (
-                  <a className="secondary-button" href={profile.linkedin} target="_blank" rel="noreferrer">
-                    <Linkedin size={18} /> LinkedIn
-                  </a>
-                ) : null}
-                {profile.github ? (
-                  <a className="secondary-button" href={profile.github} target="_blank" rel="noreferrer">
-                    <Github size={18} /> GitHub
-                  </a>
-                ) : null}
-                {profile.resumeHref ? (
-                  <a className="secondary-button" href={profile.resumeHref} download>
-                    <FileText size={18} /> Download Resume
-                  </a>
-                ) : null}
-                {profile.resumePageHref ? (
-                  <a className="secondary-button" href={profile.resumePageHref}>View Resume</a>
-                ) : null}
-              </div>
-              <div className="contact-promise">
-                <BadgeCheck size={18} />
-                <span>Portfolio inquiries receive an automatic email confirmation after submission.</span>
-              </div>
-              <blockquote className="quote-card contact-quote">
-                “Clear systems. Practical support. Reliable follow-through.”
-                <span>— John Rey</span>
-              </blockquote>
+            <div className="resume-actions">
+              <a className="primary-button" href={profile.resumeHref} download><Download size={18} /> Download PDF</a>
+              <a className="secondary-button" href={profile.resumeDocxHref} download><FileText size={18} /> Download DOCX</a>
+              <Link className="text-link" href={profile.resumePageHref}>View online resume <ArrowRight size={16} /></Link>
             </div>
           </Reveal>
 
-          <Reveal delay={100}>
-            <ContactForm />
+          <Reveal className="ats-sheet" delay={90}>
+            <div className="ats-sheet-header"><FileText size={24} /><span>ATS Resume</span></div>
+            <h3>{profile.fullName}</h3>
+            <p>Technical Support · Customer Support · Admin Operations · Web Systems</p>
+            <ul>
+              <li><Check size={16} /> Single-column reading order</li>
+              <li><Check size={16} /> Standard ATS section headings</li>
+              <li><Check size={16} /> Relevant, defensible keywords</li>
+              <li><Check size={16} /> PDF and editable DOCX formats</li>
+            </ul>
           </Reveal>
+        </div>
+      </section>
+
+      <section id="contact" className="section contact-section">
+        <div className="container-shell contact-layout">
+          <Reveal className="contact-copy-block">
+            <p className="eyebrow">Let&apos;s connect</p>
+            <h2 className="section-title">Need someone who can support both people and systems?</h2>
+            <p className="section-lead">
+              I&apos;m open to remote technical support, customer support, administrative operations,
+              website support, junior IT, and suitable project-based work.
+            </p>
+            <a className="direct-email" href={`mailto:${profile.email}`}><Mail size={19} /> {profile.email}</a>
+            <div className="contact-principle">
+              <ShieldCheck size={19} />
+              <span>Clear communication, honest skill positioning, and no exaggerated claims.</span>
+            </div>
+          </Reveal>
+          <Reveal delay={90}><ContactForm /></Reveal>
         </div>
       </section>
 
       <footer className="footer">
         <div className="container-shell footer-inner">
-          <div><strong>{profile.fullName}</strong> <span>{profile.role}</span></div>
-          <div>{profile.location} • Remote • Hourly • Part-time • Project-based</div>
+          <div><strong>{profile.fullName}</strong><span>Support · Systems · Web</span></div>
+          <p>{profile.location} · Remote · Open to opportunities</p>
         </div>
       </footer>
     </main>

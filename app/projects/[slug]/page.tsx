@@ -51,7 +51,7 @@ export default async function ProjectPage({
         <div className="case-nav-actions">
           <ThemeToggle />
           <Link href="/#contact" className="nav-cta">
-            Work With Me
+            Contact Me
           </Link>
         </div>
       </div>
@@ -123,7 +123,7 @@ export default async function ProjectPage({
         <div className="container-shell case-grid">
           <div>
             <div className="eyebrow">Highlights</div>
-            <h2 className="section-title">Key capabilities demonstrated</h2>
+            <h2 className="section-title">Support skills demonstrated</h2>
           </div>
           <div className="highlight-list">
             {project.highlights.map((item) => (
@@ -142,11 +142,11 @@ export default async function ProjectPage({
       <section className="case-cta">
         <div className="container-shell case-cta-inner">
           <div>
-            <div className="eyebrow">Need something similar?</div>
-            <h2>Let&apos;s turn your workflow into a practical system.</h2>
+            <div className="eyebrow">Need dependable support?</div>
+            <h2>Let&apos;s make the workflow clearer for your team and customers.</h2>
           </div>
           <Link href="/#contact" className="primary-button">
-            Let&apos;s Work Together <ArrowRight size={18} />
+            Start a Conversation <ArrowRight size={18} />
           </Link>
         </div>
       </section>

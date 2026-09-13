@@ -47,8 +47,8 @@ export function ContactForm() {
     <form className="contact-form-card" onSubmit={handleSubmit}>
       <div className="contact-form-heading">
         <div>
-          <p className="contact-form-kicker">Project inquiry</p>
-          <h3>Tell me what you need help with.</h3>
+          <p className="contact-form-kicker">Work or support inquiry</p>
+          <h3>Tell me about the role or task.</h3>
         </div>
         <span className="auto-reply-badge"><ShieldCheck size={15} /> Auto-reply enabled</span>
       </div>
@@ -71,12 +71,13 @@ export function ContactForm() {
         </label>
         <label>
           <span>Type of support</span>
-          <select name="workType" defaultValue="Hourly technical support" required>
-            <option>Hourly technical support</option>
-            <option>Part-time Technical VA</option>
-            <option>Project-based development</option>
-            <option>Website maintenance / bug fix</option>
-            <option>Automation / API integration</option>
+          <select name="workType" defaultValue="Technical or application support" required>
+            <option>Technical or application support</option>
+            <option>Customer support - email or chat</option>
+            <option>Administrative or operations support</option>
+            <option>Website and system support</option>
+            <option>Junior IT support</option>
+            <option>Project-based web development</option>
             <option>Other</option>
           </select>
         </label>
@@ -90,7 +91,7 @@ export function ContactForm() {
           minLength={15}
           maxLength={2500}
           required
-          placeholder="Tell me about your website/system, the main problem, and what outcome you need."
+          placeholder="Share the role, system, recurring tasks, or main issue you need help with."
         />
       </label>
 

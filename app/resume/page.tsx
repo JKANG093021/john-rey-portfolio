@@ -1,71 +1,33 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import {
-  ArrowLeft,
-  Download,
-  Mail,
-  MapPin,
-  BriefcaseBusiness,
-  Code2,
-  Database,
-  Wrench,
-  Workflow,
-  TestTube2,
-} from "lucide-react";
-import { profile } from "@/data/portfolio";
+import { ArrowLeft, Download, FileText, Mail, MapPin } from "lucide-react";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { profile } from "@/data/portfolio";
 
 export const metadata: Metadata = {
-  title: "Resume",
+  title: "ATS Resume",
   description:
-    "Resume of John Rey Baliguat, a Technical Virtual Assistant focused on web support, troubleshooting, QA, systems, and automation for remote clients.",
+    "ATS-friendly resume of John Rey Baliguat for technical support, customer support, administrative operations, website support, and junior IT roles.",
 };
 
-const capabilities = [
-  [BriefcaseBusiness, "Technical VA Support", "Ongoing website, system, documentation, and remote technical task support."],
-  [Wrench, "Website Support", "Updates, maintenance, deployment support, forms, and practical fixes."],
-  [TestTube2, "QA & Troubleshooting", "Workflow testing, issue tracing, mobile checks, and verification."],
-  [Database, "Systems & Database Support", "Admin tools, records, workflows, and database-backed features."],
-  [Workflow, "API & Automation", "REST APIs, Loyverse integration, email flows, and workflow automation."],
-  [Code2, "Web Development", "Custom PHP, JavaScript, and modern web work when a support task needs code."],
-] as const;
-
-const resumeProjects = [
-  {
-    title: "Triple Vision Realty Platform",
-    meta: "Real Estate / Lead & Sales Attribution",
-    bullets: [
-      "Property listings, admin workflows, buyer leads, and agent referral attribution.",
-      "Mobile buyer-lead improvements and practical lead-ownership workflow support.",
-    ],
-  },
-  {
-    title: "DOUS E-Borrower's Card System",
-    meta: "Academic Library / OJT Project",
-    bullets: [
-      "Deployed student and administrator portal for borrower access and library workflows.",
-      "Account registration, database-driven access, testing, and interface design.",
-    ],
-  },
-  {
-    title: "Soy Yummy E-commerce Platform",
-    meta: "E-commerce / Retail Operations",
-    bullets: [
-      "Customer ordering, products, branches, inventory-related records, POS, and admin workflows.",
-      "Database setup, UI iteration, debugging, and customer/admin workflow testing.",
-    ],
-  },
-  {
-    title: "Chuchu Milktea Loyalty Kiosk",
-    meta: "Loyalty / Loyverse API Integration",
-    bullets: [
-      "Tablet-first loyalty flow connected to Loyverse receipt data.",
-      "Receipt polling and synchronization, per-customer claim windows, kiosk UX, and deployment support.",
-    ],
-  },
+const coreSkills = [
+  "Technical support and troubleshooting",
+  "Customer assistance by email and chat",
+  "Administrative and operations support",
+  "Business system familiarization",
+  "Admin dashboard support and record maintenance",
+  "Issue reproduction and escalation notes",
+  "Website and system maintenance",
+  "Software, printer, and peripheral installation",
+  "Basic hardware setup and troubleshooting",
+  "QA testing and workflow verification",
+  "Technical documentation",
+  "Database-backed workflows",
+  "Responsive and mobile testing",
+  "REST API integration",
 ];
 
-const tools = [
+const technicalSkills = [
   "HTML",
   "CSS",
   "JavaScript",
@@ -75,116 +37,187 @@ const tools = [
   "Next.js",
   "Tailwind CSS",
   "REST APIs",
-  "Git / Version Control",
-  "AI-Assisted Development",
+  "Git and version control",
+  "ChatGPT and Claude as personal productivity tools",
+  "AI-assisted research, drafting, and debugging",
+  "Hardware, printer, device, and internet troubleshooting",
+];
+
+const projectExperience = [
+  {
+    title: "Triple Vision Realty Platform",
+    context: "Real estate website and admin system",
+    bullets: [
+      "Supported property listings, buyer inquiries, admin records, mobile lead workflows, and agent referral attribution.",
+      "Translated business requirements into clearer customer-facing and administrator workflows while preserving existing functionality.",
+    ],
+  },
+  {
+    title: "Milk Tea E-commerce Experience",
+    context: "Self-directed portfolio concept",
+    bullets: [
+      "Planned a responsive product-discovery, pickup or delivery, cart, and checkout journey for a fictional milk-tea storefront.",
+    ],
+  },
+  {
+    title: "Chuchu Milktea Loyalty Kiosk",
+    context: "Client loyalty system and Loyverse API integration",
+    bullets: [
+      "Built and supported a tablet-first customer loyalty flow connected to external receipt data.",
+      "Investigated production issues involving receipt synchronization, browser polling, customer claim windows, and kiosk operation.",
+    ],
+  },
+  {
+    title: "DOUS E-Borrower's Card System",
+    context: "Academic library system and OJT project",
+    bullets: [
+      "Built and deployed a student and administrator portal for registration, borrower access, and database-driven workflows.",
+      "Tested user journeys and supported common IT concerns in an academic environment.",
+    ],
+  },
+];
+
+const training = [
+  {
+    title: "Real Estate Brokerage Seminar for Real Estate Salespersons",
+    meta: "Philippines Center for Real Estate Professional Studies, Inc. | 12 credit units | June 20–21, 2026",
+  },
+  {
+    title: "Explainable AI (XAI) and Front-End Web Development Essentials webinars",
+    meta: "West Visayas State University CICT | September 27, 2024",
+  },
+  {
+    title: "Career Development in IT: From College to Industry",
+    meta: "West Visayas State University CICT | September 28, 2024",
+  },
+  {
+    title: "Azure AZ-104 Insight learning event",
+    meta: "Styava.dev | September 25, 2024",
+  },
 ];
 
 export default function ResumePage() {
   return (
     <main className="resume-page">
-      <div className="resume-topbar container-shell">
-        <Link href="/#home" className="back-link">
-          <ArrowLeft size={17} /> Back to portfolio
-        </Link>
-        <div className="resume-topbar-actions">
+      <div className="resume-toolbar container-shell">
+        <Link href="/#resume" className="back-link"><ArrowLeft size={17} /> Back to portfolio</Link>
+        <div className="resume-toolbar-actions">
           <ThemeToggle />
-          <a className="primary-button resume-download-top" href={profile.resumeHref} download>
-            <Download size={17} /> Download PDF
-          </a>
+          <a className="secondary-button" href={profile.resumeDocxHref} download><FileText size={17} /> DOCX</a>
+          <a className="primary-button" href={profile.resumeHref} download><Download size={17} /> PDF</a>
         </div>
       </div>
 
-      <section className="resume-paper" aria-label="John Rey Baliguat resume">
-        <header className="resume-header">
-          <p className="resume-kicker">Resume / Curriculum Vitae</p>
+      <article className="resume-document" aria-label="ATS resume of John Rey Baliguat">
+        <header className="resume-document-header">
           <h1>{profile.fullName}</h1>
-          <h2>{profile.role}</h2>
-          <div className="resume-contact-line">
-            <span><MapPin size={15} /> {profile.location} / Remote</span>
-            <a href={`mailto:${profile.email}`}><Mail size={15} /> {profile.email}</a>
+          <p className="resume-target-title">Technical Support | Customer Support | Administrative Operations | Web Systems</p>
+          <div className="resume-contact-row">
+            <span><MapPin size={14} /> {profile.location} | Remote</span>
+            <a href={`mailto:${profile.email}`}><Mail size={14} /> {profile.email}</a>
+            <a href={profile.portfolioUrl} target="_blank" rel="noreferrer">{profile.portfolioUrl.replace("https://", "")}</a>
           </div>
         </header>
 
-        <div className="resume-rule" />
-
-        <section className="resume-block">
-          <h3>Professional Summary</h3>
+        <section className="resume-section">
+          <h2>Professional Summary</h2>
           <p>
-            Technical Virtual Assistant focused on web support, troubleshooting, QA, business systems, and practical automation. I have hands-on experience maintaining and improving live websites, resolving user-flow and database-backed issues, supporting admin tools, testing responsive interfaces, assisting with deployment, and working with REST API integrations. My web development background lets me handle technical VA tasks that sometimes require code, while keeping the priority on dependable day-to-day support for remote clients.
+            Bachelor of Science in Information Technology graduate with approximately two years of hands-on web, hardware, and technical project experience. Supports users, administrative and customer workflows, business platforms, websites, device and printer installation, maintenance, quality assurance, databases, deployment, and API integrations. Learns unfamiliar systems and procedures carefully, communicates clearly, and verifies completed work.
           </p>
         </section>
 
-        <section className="resume-block">
-          <h3>Core Capabilities</h3>
-          <div className="resume-capability-grid">
-            {capabilities.map(([Icon, title, text]) => (
-              <div key={title} className="resume-capability">
-                <Icon size={19} />
-                <div><strong>{title}</strong><span>{text}</span></div>
+        <section className="resume-section">
+          <h2>Core Skills</h2>
+          <p className="resume-keyword-list">{coreSkills.join(" | ")}</p>
+        </section>
+
+        <section className="resume-section">
+          <h2>Relevant Experience</h2>
+
+          <div className="resume-entry">
+            <div className="resume-entry-heading">
+              <div><h3>Independent Web Developer and Technical Support</h3><p>Project-based | Philippines and remote</p></div>
+              <span>Current</span>
+            </div>
+            <ul>
+              <li>Build, maintain, test, and troubleshoot websites and database-backed systems for business and academic workflows.</li>
+              <li>Work with client requirements, admin processes, customer journeys, forms, records, responsive interfaces, and production fixes.</li>
+              <li>Support software, computer hardware, printer, and peripheral setup; investigate issues systematically and verify changes.</li>
+              <li>Explain technical work clearly and support deployment, hosting configuration, REST API integrations, and ongoing improvements.</li>
+            </ul>
+          </div>
+
+          <div className="resume-entry">
+            <div className="resume-entry-heading">
+              <div><h3>Hardware Technician</h3><p>Earlier professional experience</p></div>
+            </div>
+            <ul>
+              <li>Diagnosed hardware problems, performed practical maintenance, and used step-by-step root-cause isolation to restore reliable device operation.</li>
+            </ul>
+          </div>
+
+          <div className="resume-entry">
+            <div className="resume-entry-heading">
+              <div><h3>Information Technology OJT and Technical Support</h3><p>Don Mariano Marcos Memorial State University - Mid La Union Campus</p></div>
+            </div>
+            <ul>
+              <li>Assisted users with common technical concerns, including internet connectivity issues.</li>
+              <li>Developed and deployed the DOUS E-Borrower's Card System for student and administrator library workflows.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section className="resume-section">
+          <h2>Selected Project Experience</h2>
+          {projectExperience.map((project) => (
+            <div className="resume-entry resume-project-entry" key={project.title}>
+              <div className="resume-entry-heading">
+                <div><h3>{project.title}</h3><p>{project.context}</p></div>
               </div>
-            ))}
-          </div>
+              <ul>{project.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}</ul>
+            </div>
+          ))}
         </section>
 
-
-        <section className="resume-block">
-          <h3>Technical Support Experience</h3>
-          <ul className="resume-support-list">
-            <li>Diagnose and resolve website, form, database, admin-dashboard, and user-flow issues.</li>
-            <li>Maintain and update live web applications, customer-facing pages, and internal business systems.</li>
-            <li>Test customer and administrator workflows across desktop and mobile before deployment.</li>
-            <li>Support hosting, deployment, configuration, browser troubleshooting, and production fixes.</li>
-            <li>Work with REST APIs, third-party integrations, email flows, and practical workflow automation.</li>
-            <li>Create clear technical notes and use AI-assisted development to speed up debugging while manually validating fixes.</li>
-          </ul>
+        <section className="resume-section">
+          <h2>Technical Skills</h2>
+          <p className="resume-keyword-list">{technicalSkills.join(" | ")}</p>
+          <p className="resume-growth"><strong>Currently expanding:</strong> TypeScript, n8n, Make, Zapier, and advanced Next.js workflows.</p>
         </section>
 
-        <section className="resume-block">
-          <h3>Selected Project Experience</h3>
-          <div className="resume-project-list">
-            {resumeProjects.map((project) => (
-              <article className="resume-project-item" key={project.title}>
-                <h4>{project.title}</h4>
-                <p className="resume-project-meta">{project.meta}</p>
-                <ul>
-                  {project.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}
-                </ul>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section className="resume-block">
-          <h3>Tools & Technologies</h3>
-          <div className="resume-tools">
-            {tools.map((tool) => <span key={tool}>{tool}</span>)}
-          </div>
-        </section>
-
-
-        <section className="resume-block">
-          <h3>Education</h3>
-          <div className="resume-education">
-            <strong>Bachelor of Science in Information Technology</strong>
-            <span>Don Mariano Marcos Memorial State University - Mid La Union Campus</span>
+        <section className="resume-section">
+          <h2>Education</h2>
+          <div className="resume-entry-heading resume-education-entry">
+            <div>
+              <h3>Bachelor of Science in Information Technology</h3>
+              <p>Don Mariano Marcos Memorial State University - Mid La Union Campus</p>
+            </div>
             <span>Graduated</span>
           </div>
         </section>
 
-        <section className="resume-block resume-final-block">
-          <h3>Current Growth & Availability</h3>
+        <section className="resume-section">
+          <h2>Training and Certificates</h2>
+          {training.map((item) => (
+            <div className="resume-entry resume-training-entry" key={item.title}>
+              <div className="resume-entry-heading">
+                <div><h3>{item.title}</h3><p>{item.meta}</p></div>
+              </div>
+            </div>
+          ))}
+        </section>
+
+        <section className="resume-section resume-last-section">
+          <h2>Target Roles and Availability</h2>
           <p>
-            <strong>Currently expanding:</strong> TypeScript, n8n / Make / Zapier, and advanced Next.js.
-            <strong> Availability:</strong> Remote, hourly, part-time, and project-based work.
+            Technical Support, Application Support, Customer Support by Email or Chat, Administrative or Operations Assistant, Website and System Support, Junior IT Support, and Hardware Installation or Maintenance Support. Available for remote full-time, part-time, and suitable project-based opportunities.
           </p>
         </section>
-      </section>
+      </article>
 
-      <div className="resume-bottom-actions container-shell">
-        <a className="primary-button" href={profile.resumeHref} download>
-          <Download size={18} /> Download Resume PDF
-        </a>
-        <Link className="secondary-button" href="/#contact">Contact John Rey</Link>
+      <div className="resume-mobile-actions container-shell">
+        <a className="primary-button" href={profile.resumeHref} download><Download size={18} /> Download PDF</a>
+        <a className="secondary-button" href={profile.resumeDocxHref} download><FileText size={18} /> Download DOCX</a>
       </div>
     </main>
   );

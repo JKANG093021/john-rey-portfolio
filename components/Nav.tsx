@@ -1,16 +1,16 @@
 "use client";
 
+import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { ThemeToggle } from "@/components/ThemeToggle";
 
 const links = [
-  ["Home", "/#home"],
-  ["Services", "/#services"],
-  ["Projects", "/#projects"],
-  ["Skills", "/#skills"],
+  ["Profile", "/#about"],
+  ["Support", "/#support"],
+  ["Work", "/#projects"],
+  ["Certificates", "/#certificates"],
   ["Resume", "/resume"],
-  ["Contact", "/#contact"],
 ];
 
 export function Nav() {
@@ -19,47 +19,44 @@ export function Nav() {
   return (
     <header className="site-header">
       <div className="nav-wrap container-shell">
-        <a className="brand" href="/#home" aria-label="John Rey Baliguat home">
-          John Rey<span>.</span>
-        </a>
+        <Link className="brand" href="/#home" aria-label="John Rey Baliguat home">
+          <span className="brand-mark" aria-hidden="true">JR</span>
+          <span className="brand-copy">
+            <strong>John Rey Baliguat</strong>
+            <small>Support · Systems · Web</small>
+          </span>
+        </Link>
 
         <nav className="desktop-nav" aria-label="Primary navigation">
           {links.map(([label, href]) => (
-            <a key={href} href={href}>
-              {label}
-            </a>
+            <Link key={href} href={href}>{label}</Link>
           ))}
         </nav>
 
         <div className="nav-actions">
           <ThemeToggle />
-          <a className="nav-cta desktop-cta" href="/#contact">
-            Contact Me
-          </a>
+          <Link className="nav-cta desktop-cta" href="/#contact">Let&apos;s Talk</Link>
           <button
             type="button"
             className="menu-button"
-            aria-label="Toggle menu"
+            aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
+            aria-controls="mobile-navigation"
             onClick={() => setOpen((value) => !value)}
           >
-            {open ? <X size={22} /> : <Menu size={22} />}
+            {open ? <X size={21} /> : <Menu size={21} />}
           </button>
         </div>
       </div>
 
-      {open && (
-        <nav className="mobile-nav" aria-label="Mobile navigation">
+      {open ? (
+        <nav id="mobile-navigation" className="mobile-nav" aria-label="Mobile navigation">
           {links.map(([label, href]) => (
-            <a key={href} href={href} onClick={() => setOpen(false)}>
-              {label}
-            </a>
+            <Link key={href} href={href} onClick={() => setOpen(false)}>{label}</Link>
           ))}
-          <a className="nav-cta" href="/#contact" onClick={() => setOpen(false)}>
-            Contact Me
-          </a>
+          <Link className="nav-cta" href="/#contact" onClick={() => setOpen(false)}>Let&apos;s Talk</Link>
         </nav>
-      )}
+      ) : null}
     </header>
   );
 }

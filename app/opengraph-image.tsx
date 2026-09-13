@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "John Rey Baliguat — Technical Virtual Assistant | Web Support & Automation";
+export const alt = "John Rey Baliguat - Technical, Admin, Customer, and Web Support";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -22,16 +22,16 @@ export default function OpenGraphImage() {
         }}
       >
         <div style={{ display: "flex", color: "#7fb1ff", fontSize: 22, letterSpacing: 4 }}>
-          TECHNICAL VIRTUAL ASSISTANT • WEB SUPPORT • AUTOMATION
+          TECHNICAL SUPPORT • ADMIN OPERATIONS • CUSTOMER SUPPORT • WEB SYSTEMS
         </div>
         <div style={{ display: "flex", fontSize: 70, fontWeight: 800, marginTop: 28 }}>
           John Rey Baliguat<span style={{ color: "#2f80ff" }}>.</span>
         </div>
         <div style={{ display: "flex", maxWidth: 930, fontSize: 42, lineHeight: 1.16, marginTop: 14 }}>
-          Website support, troubleshooting, QA, systems, and practical automation.
+          Reliable support for the people, processes, websites, and systems behind the work.
         </div>
         <div style={{ display: "flex", gap: 18, marginTop: 54, fontSize: 22, color: "#a9b9cd" }}>
-          <span>Remote</span><span>•</span><span>Hourly</span><span>•</span><span>Part-time</span><span>•</span><span>Project-based</span>
+          <span>Philippines</span><span>•</span><span>Remote</span><span>•</span><span>Full-time</span><span>•</span><span>Part-time</span><span>•</span><span>Project-based</span>
         </div>
       </div>
     ),
