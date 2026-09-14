@@ -4,6 +4,7 @@ export const profile = {
   role: "Technical VA | Web and Business System Support | Customer and Admin Support",
   specialty: "Websites, business systems, customer and admin workflows, hardware installation, and maintenance",
   email: "baliguatjohnrey91@gmail.com",
+  facebook: "https://facebook.com/JanuareyB",
   linkedin: "",
   github: "",
   portfolioUrl: "https://john-rey-portfolio-wsj7.vercel.app",

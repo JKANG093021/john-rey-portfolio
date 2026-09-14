@@ -479,7 +479,28 @@ export default function Home() {
               administrative operations, website support, junior IT, and suitable project-based work.
               I also have light real-estate experience as a licensed salesperson.
             </p>
-            <a className="direct-email" href={`mailto:${profile.email}`}><Mail size={19} /> {profile.email}</a>
+            <div className="contact-methods" aria-label="Direct contact options">
+              <a className="contact-method" href={`mailto:${profile.email}`}>
+                <span className="contact-method-icon"><Mail size={18} /></span>
+                <span className="contact-method-copy">
+                  <small>Email me</small>
+                  <strong>{profile.email}</strong>
+                </span>
+              </a>
+              <a
+                className="contact-method"
+                href={profile.facebook}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <span className="contact-method-icon facebook-mark" aria-hidden="true">f</span>
+                <span className="contact-method-copy">
+                  <small>Facebook</small>
+                  <strong>facebook.com/JanuareyB</strong>
+                </span>
+                <ExternalLink className="contact-method-external" size={15} />
+              </a>
+            </div>
             <div className="contact-principle">
               <ShieldCheck size={19} />
               <span>Clear communication, honest skill positioning, and no exaggerated claims.</span>

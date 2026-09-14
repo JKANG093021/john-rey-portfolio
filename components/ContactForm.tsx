@@ -108,7 +108,7 @@ export function ContactForm() {
       </button>
 
       <p className="contact-form-note">
-        Your inquiry goes directly to John Rey. You&apos;ll receive an automatic confirmation after a successful submission.
+        Your inquiry goes directly to John Rey. You&apos;ll receive a confirmation with your inquiry type and next steps.
       </p>
 
       {feedback ? (

@@ -18,7 +18,8 @@ Premium hiring portfolio for John Rey Baliguat, positioned for technical support
 - Privacy-safe DOUS project imagery and restored Triple Vision admin-system link
 - Dedicated online resume page at `/resume`
 - One-page ATS resume in PDF and editable DOCX formats
-- Contact form with Gmail delivery and visitor confirmation
+- Contact section with direct email and Facebook options
+- Contact form with Gmail delivery and a minimal branded HTML visitor confirmation with plain-text fallback
 - SEO metadata, sitemap, robots, manifest, Open Graph image, and custom 404 page
 
 ## Run locally
